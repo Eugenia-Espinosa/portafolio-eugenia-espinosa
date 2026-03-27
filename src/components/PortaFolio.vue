@@ -437,11 +437,11 @@ main {
 
 .hero__photo {
   display: block;
-  width: clamp(200px, 74vw, 280px);
-  height: clamp(200px, 74vw, 280px);
+  width: clamp(200px, 74vw, 200px);
+  height: clamp(200px, 74vw, 200px);
   object-fit: cover;
   object-position: center center;
-  border-radius: 24px;
+  border-radius: 50%;
   border: 4px solid var(--bg-elevated);
   box-shadow: var(--shadow-soft), 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
