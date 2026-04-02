@@ -3,13 +3,8 @@
     <header class="nav" :class="{ 'nav--open': menuOpen }">
       <div class="nav__inner">
         <a class="nav__brand" href="#inicio" @click="closeMenu">Portafolio</a>
-        <button
-          type="button"
-          class="nav__toggle"
-          :aria-expanded="menuOpen"
-          aria-label="Abrir o cerrar menú"
-          @click="menuOpen = !menuOpen"
-        >
+        <button type="button" class="nav__toggle" :aria-expanded="menuOpen" aria-label="Abrir o cerrar menú"
+          @click="menuOpen = !menuOpen">
           <span />
           <span />
           <span />
@@ -28,15 +23,8 @@
       <section id="inicio" class="hero">
         <div class="hero__layout">
           <figure class="hero__figure">
-            <img
-              class="hero__photo"
-              :src="profile.photoUrl"
-              :alt="`Fotografía de ${profile.name}`"
-              width="280"
-              height="280"
-              loading="eager"
-              decoding="async"
-            >
+            <img class="hero__photo" :src="profile.photoUrl" :alt="`Fotografía de ${profile.name}`" width="280"
+              height="280" loading="eager" decoding="async">
           </figure>
           <div class="hero__content">
             <p class="hero__eyebrow">Hola, soy</p>
@@ -61,27 +49,20 @@
       <section id="habilidades" class="section">
         <div class="section__inner">
           <h2 class="section__title">Habilidades</h2>
-          <ul class="skills">
-            <li
-              v-for="skill in skills"
-              :key="skill.label"
-              class="skills__item"
-            >
-              <span class="skills__icons" aria-hidden="true">
-                <i
-                  v-if="skill.iconClass"
-                  :class="['skills__fa', skill.iconClass]"
-                  :style="skill.color ? { color: skill.color } : undefined"
-                />
-                <i
-                  v-if="skill.iconClass2"
-                  :class="['skills__fa', 'skills__fa--extra', skill.iconClass2]"
-                  :style="skill.color2 ? { color: skill.color2 } : undefined"
-                />
-              </span>
-              <span class="skills__label">{{ skill.label }}</span>
-            </li>
-          </ul>
+          <div v-for="(categorySkills, categoryName) in skills" :key="categoryName" class="skills__group">
+            <h3 class="skills__category">{{ categoryName }}</h3>
+            <ul class="skills">
+              <li v-for="skill in categorySkills" :key="skill.label" class="skills__item">
+                <span class="skills__icons" aria-hidden="true">
+                  <i v-if="skill.iconClass" :class="['skills__fa', skill.iconClass]"
+                    :style="skill.color ? { color: skill.color } : undefined" />
+                  <i v-if="skill.iconClass2" :class="['skills__fa', 'skills__fa--extra', skill.iconClass2]"
+                    :style="skill.color2 ? { color: skill.color2 } : undefined" />
+                </span>
+                <span class="skills__label">{{ skill.label }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -89,24 +70,15 @@
         <div class="section__inner">
           <h2 class="section__title">Proyectos</h2>
           <div class="projects">
-            <article
-              v-for="project in projects"
-              :key="project.title"
-              class="project-card"
-            >
+            <article v-for="project in projects" :key="project.title" class="project-card">
               <div class="project-card__accent" :aria-hidden="true" />
               <h3 class="project-card__title">{{ project.title }}</h3>
               <p class="project-card__desc">{{ project.description }}</p>
               <ul class="project-card__tags">
                 <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
               </ul>
-              <a
-                v-if="project.url"
-                class="project-card__link"
-                :href="project.url"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a v-if="project.url" class="project-card__link" :href="project.url" target="_blank"
+                rel="noopener noreferrer">
                 Ver más
               </a>
             </article>
@@ -125,14 +97,8 @@
               {{ profile.email }}
             </a>
             <div class="contact__social">
-              <a
-                v-for="link in social"
-                :key="link.label"
-                class="contact__social-link"
-                :href="link.href"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a v-for="link in social" :key="link.label" class="contact__social-link" :href="link.href" target="_blank"
+                rel="noopener noreferrer">
                 <i :class="link.iconClass" aria-hidden="true" />
                 <span>{{ link.label }}</span>
               </a>
@@ -150,79 +116,14 @@
 
 <script setup>
 import { ref } from 'vue'
+import data from '../data/portfolio.json'
+
+const { profile, skills, projects, social } = data
 
 const menuOpen = ref(false)
 const year = new Date().getFullYear()
 
-const profile = {
-  name: 'Eugenia Carolina Espinosa Ramos',
-  role: 'Ingeniera en Informática de Gestión - Analista QA - Desarrolladora Front-End Junior',
-  tagline: '',
-  about:'Soy Ingeniera en Informática de Gestión me he desempeñado como Analista QA  y ahora estoy potenciando mis habilidades en el área TI con un Bootcamp en Desarrollo en Front End. Me gusta aprender buenas prácticas, trabajar en equipo y entregar código que otros puedan entender y extender.',
-  email: 'e.espinosa@vtr.net',
-  photoUrl:'foto.jpg' 
-
-}
-
-const skills = [
-  { label: 'Vue 3', iconClass: 'fa-brands fa-vuejs', color: '#42b883' },
-  { label: 'JavaScript', iconClass: 'fa-brands fa-js', color: '#f7df1e' },
-  { label: 'HTML', iconClass: 'fa-brands fa-html5', color: '#e34f26' },
-  { label: 'CSS', iconClass: 'fa-brands fa-css3-alt', color: '#1572b6' },
-  { label: 'Bootstrap', iconClass: 'fa-brands fa-bootstrap', color: '#7952b3' },
-  {
-    label: 'Responsive design',
-    iconClass: 'fa-solid fa-mobile-screen-button',
-    color: '#2563eb'
-  },
-  { label: 'GitHub', iconClass: 'fa-brands fa-github', color: '#24292f' },
-  { label: 'REST APIs', iconClass: 'fa-solid fa-plug', color: '#0ea5e9' },
-  { label: 'SQL', iconClass: 'fa-solid fa-database', color: '#4479a1' },
-  { label: 'Postman', iconClass: 'fa-brands fa-postman', color: '#ff6c37' },
-  { label: 'Jira', iconClass: 'fa-brands fa-jira', color: '#0052cc' },
-  { label: 'Confluence', iconClass: 'fa-brands fa-confluence', color: '#2684ff' },
-  {
-    label: 'AIOtest',
-    iconClass: 'fa-solid fa-clipboard-check',
-    color: '#7c3aed'
-  }
-]
-
-const projects = [
-  {
-    title: 'App Clima',
-    description: 'App que entrega clima de distintas ciudades de América Latina.',
-    tags: ['Vue', 'LocalStorage'],
-    url: '#'
-  },
-  {
-    title: 'Landing promocional',
-    description: 'Página de aterrizaje con secciones, formulario y animaciones suaves.',
-    tags: ['HTML', 'CSS', 'Vue'],
-    url: '#'
-  },
-  {
-    title: 'Dashboard simple',
-    description: 'Panel con gráficos de ejemplo y consumo de API pública.',
-    tags: ['Vue', 'Fetch', 'JSON'],
-    url: '#'
-  }
-]
-
-const social = [
-  {
-    label: 'GitHub',
-    href: 'https://github.com/',
-    iconClass: 'fa-brands fa-github'
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/eugenia-espinosa-20266765/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bf1mvDYXoSOaQiTGd%2BBrA9Q%3D%3D',
-    iconClass: 'fa-brands fa-linkedin'
-  }
-]
-
-function closeMenu () {
+function closeMenu() {
   menuOpen.value = false
 }
 </script>
@@ -245,15 +146,12 @@ function closeMenu () {
     0 6px 20px rgba(37, 99, 235, 0.06);
   --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
-  background: linear-gradient(
-      160deg,
+  background: linear-gradient(160deg,
       #f8fafc 0%,
       #e2e8f0 28%,
       #e0f2fe 55%,
       #eff6ff 78%,
-      #f1f5f9 100%
-    )
-    fixed;
+      #f1f5f9 100%) fixed;
   color: var(--text);
   font-family: var(--font);
 }
@@ -574,6 +472,23 @@ main {
   font-size: 1.02rem;
 }
 
+.skills__group {
+  margin-bottom: 1.5rem;
+}
+
+.skills__group:last-child {
+  margin-bottom: 0;
+}
+
+.skills__category {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-strong);
+}
+
 .skills {
   list-style: none;
   margin: 0;
@@ -672,13 +587,11 @@ main {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    #64748b,
-    #94a3b8,
-    #3b82f6,
-    #1d4ed8
-  );
+  background: linear-gradient(90deg,
+      #64748b,
+      #94a3b8,
+      #3b82f6,
+      #1d4ed8);
 }
 
 .project-card__title {

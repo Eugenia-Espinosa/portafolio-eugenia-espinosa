@@ -1,0 +1,143 @@
+{
+  "profile": {
+    "name": "Eugenia Carolina Espinosa Ramos",
+    "role": " Analista QA - Desarrolladora Front-End ",
+    "tagline": "",
+    "about": "Analista QA Funcional con experiencia en certificación de proyectos TI en entornos ágiles, orientada a la calidad del software y mejora continua. Destaco por mi capacidad analítica, organización y trabajo colaborativo con equipos multidisciplinarios. Experiencia en diseño y ejecución de casos de prueba, gestión de incidencias y coordinación de pases a producción. Manejo de herramientas QA y metodologías ágiles (Scrum). Actualmente fortaleciendo mis habilidades en automatización y desarrollo Front-End (JavaScript, Cypress, Vue 3), integrando una visión más completa del ciclo de desarrollo.",
+    "email": "e.espinosa@vtr.net",
+    "photoUrl": "foto.jpg"
+ },
+  "skills": {
+    "Analista QA": [
+      {
+        "label": "Jira",
+        "iconClass": "fa-brands fa-jira",
+        "color": "#0052cc"
+      },
+      {
+        "label": "Confluence",
+        "iconClass": "fa-brands fa-confluence",
+        "color": "#2684ff"
+      },
+      {
+        "label": "AIOtest",
+        "iconClass": "fa-solid fa-clipboard-check",
+        "color": "#7c3aed"
+      },
+      {
+        "label": "SQL",
+        "iconClass": "fa-solid fa-database",
+        "color": "#4479a1"
+      },
+      {
+        "label": "Postman",
+        "iconClass": "fa-solid fa-paper-plane",
+        "color": "#ff6c37"
+      }
+    ],
+    "Desarrollador FrontEnd": [
+      {
+        "label": "Vue 3",
+        "iconClass": "fa-brands fa-vuejs",
+        "color": "#42b883"
+      },
+      {
+        "label": "JavaScript",
+        "iconClass": "fa-brands fa-js",
+        "color": "#f7df1e"
+      },
+      {
+        "label": "HTML",
+        "iconClass": "fa-brands fa-html5",
+        "color": "#e34f26"
+      },
+      {
+        "label": "CSS",
+        "iconClass": "fa-brands fa-css3-alt",
+        "color": "#1572b6"
+      },
+      {
+        "label": "Bootstrap",
+        "iconClass": "fa-brands fa-bootstrap",
+        "color": "#7952b3"
+      },
+      {
+        "label": "Responsive design",
+        "iconClass": "fa-solid fa-mobile-screen-button",
+        "color": "#2563eb"
+      },
+      {
+        "label": "REST APIs",
+        "iconClass": "fa-solid fa-plug",
+        "color": "#0ea5e9"
+      }
+    ],
+    "Despliegue y control de versiones": [
+      {
+        "label": "GitHub",
+        "iconClass": "fa-brands fa-github",
+        "color": "#24292f"
+      },
+      {
+        "label": "Netlify",
+        "iconClass": "fa-solid fa-rocket",
+        "color": "#00ad9f"
+      },
+      {
+        "label": "Vercel",
+        "iconClass": "fa-solid fa-triangle-exclamation",
+        "color": "#000000"
+      },
+      {
+        "label": "Render",
+        "iconClass": "fa-solid fa-server",
+        "color": "#46e3b7"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "App Clima 🌤️",
+      "description": "App que entrega clima con consumo de API pública",
+      "tags": [
+        "Vue",
+        "Fetch",
+        "JSON"
+        
+      ],
+      "url": "https://ciudadesclima.netlify.app/"
+    },
+    {
+      "title": "Landing promocional",
+      "description": "Página de aterrizaje con secciones, formulario y animaciones suaves.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "Vue"
+      ],
+      "url": "#"
+    },
+    {
+      "title": "Dashboard simple",
+      "description": "Panel con gráficos de ejemplo y consumo de API pública.",
+      "tags": [
+        "Vue",
+        "Fetch",
+        "JSON"
+      ],
+      "url": "#"
+    }
+  ],
+  "social": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/Eugenia-Espinosa",
+      "iconClass": "fa-brands fa-github"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/eugenia-espinosa-ramos/",
+      "iconClass": "fa-brands fa-linkedin"
+    }
+  ]
+}
